@@ -24,6 +24,16 @@ public class ExpenseController {
     public List<Expense> getExpenses() {
         return service.getAllExpenses();
     }
+
+    @GetMapping("/total")
+    public double getTotalExpenses() {
+        return service.getTotalExpenses();
+    }
+
+    @GetMapping("/category/{category}")
+    public List<Expense> getExpensesByCategory(@PathVariable String category) {
+        return service.getByCategory(category);
+    }
 }
 
 

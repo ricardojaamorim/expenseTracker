@@ -23,5 +23,25 @@ public class ExpenseService {
     public List<Expense> getAllExpenses() {
         return repository.findAll();
     }
+
+    public double getTotalExpenses() {
+        List<Expense> expenses = repository.findAll();
+
+        double total = 0;
+
+        for (Expense e : expenses) {
+            total += e.getAmount();
+        }
+
+        return total;
+    }
+
+    public List<Expense> getByCategory(String category) {
+        return repository.findByCategory(category);
+    }
+
+    .
+
+
 }
 
