@@ -4,6 +4,9 @@ import com.expensetracker.model.Budget;
 import com.expensetracker.service.BudgetService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/budget")
 public class BudgetController {
@@ -19,8 +22,14 @@ public class BudgetController {
         return service.setBudget(budget.getAmount());
     }
 
-    @GetMapping("/remaining")
-    public double getRemaining() {
-        return service.getRemainingBudget();
+    @GetMapping("/status")
+    public Map<String, Object> getStatus() {
+        double remaining = service.getRemainingBudget();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("remaining", remaining);
+        response.put("status", remaining < 0 ? "OVER BUDGET" : "OK");
+
+        return response;
     }
 }
