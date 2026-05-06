@@ -19,6 +19,7 @@ public class Expense {
             @GeneratedValue(strategy = GenerationType.AUTO)
             public Long id;
 
+
     String title;
     String category;
     double amount;

@@ -34,6 +34,13 @@ public class ExpenseController {
     public List<Expense> getExpensesByCategory(@PathVariable String category) {
         return service.getByCategory(category);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteExpense(@PathVariable Long id) {
+        service.deleteExpense(id);
+        return "Expense Deleted";
+
+    }
 }
 
 

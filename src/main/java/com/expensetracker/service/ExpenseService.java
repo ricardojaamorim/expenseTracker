@@ -40,6 +40,12 @@ public class ExpenseService {
         return repository.findByCategory(category);
     }
 
+    public void deleteExpense(Long id) {
+        repository.deleteById(id);
+    }
+
+
+
 
 }
 
