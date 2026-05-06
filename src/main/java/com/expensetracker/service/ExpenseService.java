@@ -40,8 +40,6 @@ public class ExpenseService {
         return repository.findByCategory(category);
     }
 
-    .
-
 
 }
 
